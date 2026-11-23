@@ -14,4 +14,4 @@ app.include_router(health_router, prefix="/api/v1")
 @app.get("/", tags=["Root"])
 def read_root():
     """Główny endpoint, weryfikujący działanie aplikacji."""
-    return {"message": "Welcome to Travel Agent Planner API"}
+    return {"message": "Welcome to Travel Agent Planner API "}

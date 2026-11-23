@@ -20,6 +20,7 @@ WORKDIR /app
 
 # Kopiujemy zainstalowane zależności z etapu "builder"
 COPY --from=builder /usr/local/lib/python3.12/site-packages /usr/local/lib/python3.12/site-packages
+COPY --from=builder /usr/local/bin /usr/local/bin
 
 # Kopiujemy kod źródłowy naszej aplikacji
 COPY src/ ./src
@@ -27,6 +28,7 @@ COPY tests/ ./tests
 
 # Ustawiamy PYTHONPATH, żeby Python widział nasz kod w katalogu /app
 ENV PYTHONPATH=/app
+ENV PATH="/usr/local/bin:${PATH}"
 
 # Domyślna komenda (możemy ją nadpisać w docker-compose lub Kubernetes)
 # Uruchamia serwer MCP

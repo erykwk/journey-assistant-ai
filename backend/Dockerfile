@@ -12,11 +12,13 @@ FROM python:3.12-slim
 WORKDIR /app
 
 COPY --from=builder /usr/local/lib/python3.12/site-packages /usr/local/lib/python3.12/site-packages
+COPY --from=builder /usr/local/bin /usr/local/bin
 
 COPY src/ ./src
 COPY tests/ ./tests
 
 ENV PYTHONPATH=/app
+ENV PATH="/usr/local/bin:${PATH}"
 
 # Uvicorn będzie nasłuchiwał na wszystkich interfejsach na porcie 8000
 EXPOSE 8000
