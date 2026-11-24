@@ -1,5 +1,6 @@
 from fastapi import FastAPI
 from src.api.health import router as health_router
+from src.api.agent import router as agent_router
 
 app = FastAPI(
     title="Travel Agent Planner - Backend",
@@ -7,11 +8,9 @@ app = FastAPI(
     version="0.1.0",
 )
 
-# Dołączamy routery z poszczególnych modułów
-# Prefix /api/v1 będzie obowiązywał dla wszystkich ścieżek z tego routera
 app.include_router(health_router, prefix="/api/v1")
+app.include_router(agent_router, prefix="/api/v1")
 
 @app.get("/", tags=["Root"])
 def read_root():
-    """Główny endpoint, weryfikujący działanie aplikacji."""
-    return {"message": "Welcome to Travel Agent Planner API "}
+    return {"message": "Welcome to Travel Agent Planner API"}

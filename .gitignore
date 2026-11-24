@@ -51,3 +51,8 @@ target
 
 # Pytest
 .pytest_cache/
+
+# Local secrets
+.env
+.env.*
+!.env.example

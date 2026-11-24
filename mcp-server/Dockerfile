@@ -30,6 +30,5 @@ COPY tests/ ./tests
 ENV PYTHONPATH=/app
 ENV PATH="/usr/local/bin:${PATH}"
 
-# Domyślna komenda (możemy ją nadpisać w docker-compose lub Kubernetes)
-# Uruchamia serwer MCP
+# Domyślna komenda - uruchamia serwer MCP przez Streamable HTTP
 CMD ["python", "-m", "src.server"]

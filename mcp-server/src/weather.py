@@ -11,7 +11,7 @@ async def fetch_weather(latitude: float, longitude: float) -> str:
         "current": "temperature_2m,wind_speed_10m"
     }
     
-    async with httpx.AsyncClient() as client:
+    async with httpx.AsyncClient(timeout=15.0) as client:
         response = await client.get(url, params=params)
         response.raise_for_status()
         data = response.json()

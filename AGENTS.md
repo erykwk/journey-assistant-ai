@@ -10,6 +10,8 @@
   * Linter: ESLint + Prettier
   * Testy E2E: Cypress
 * **Backend (`backend/`):** Python 3.12+ + FastAPI + Pydantic.
+  * **Ważne (SDK):** Używamy **`google-genai`** (nowe, oficjalne SDK REST/HTTP), a NIE `google-generativeai` (starsze, problematyczne gRPC).
+  * **Komunikacja:** Backend łączy się z serwerem MCP przez oficjalny klient MCP i transport Streamable HTTP z jawnym `timeout`. Do pozostałych żądań HTTP używamy `httpx.AsyncClient` z jawnym `timeout`.
   * Agent: Własna pętla agentowa (tool-calling loop / ReAct) napisana od zera. Brak LangChain/CrewAI.
   * Linter: Ruff
   * Testy: Pytest (z mockowaniem)
